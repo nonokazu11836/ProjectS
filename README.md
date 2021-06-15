@@ -23,4 +23,4 @@ Things you may want to cover:
 
 * ...
 
-* create new branch hattori
+* change branch H-8810
