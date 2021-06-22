@@ -1,14 +1,15 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Pictures</h1>
+<h1>写真テーブル</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Student</th>
-      <th>Place</th>
-      <th>Date</th>
-      <th>Event</th>
+      <th>ID</th>
+      <th>投稿した人</th>
+      <th>保存場所</th>
+      <th>日時</th>
+      <th>行事名</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,6 +17,7 @@
   <tbody>
     <% @pictures.each do |picture| %>
       <tr>
+        <td><%= picture.id %></td>
         <td><%= picture.student_id %></td>
         <td><%= picture.place %></td>
         <td><%= picture.date %></td>

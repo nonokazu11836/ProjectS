@@ -1,11 +1,12 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Events</h1>
+<h1>行事マスタ</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Name</th>
+      <th>ID</th>
+      <th>行事名</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -13,6 +14,7 @@
   <tbody>
     <% @events.each do |event| %>
       <tr>
+        <td><%= event.id %></td>
         <td><%= event.name %></td>
         <td><%= link_to 'Show', event %></td>
         <td><%= link_to 'Edit', edit_event_path(event) %></td>
