@@ -70,7 +70,7 @@ class PicturesController < ApplicationController
     end
     def myupphoto
       @pictures = Picture.all
-
+    end
     #ホーム画面
     def studenthome
     end
