@@ -15,6 +15,7 @@ class StudentsTest < ApplicationSystemTestCase
     click_on "New Student"
 
     fill_in "Gakka", with: @student.gakka_id
+    fill_in "Login", with: @student.login_id
     fill_in "Name", with: @student.name
     fill_in "Pass", with: @student.pass
     click_on "Create Student"
@@ -28,6 +29,7 @@ class StudentsTest < ApplicationSystemTestCase
     click_on "Edit", match: :first
 
     fill_in "Gakka", with: @student.gakka_id
+    fill_in "Login", with: @student.login_id
     fill_in "Name", with: @student.name
     fill_in "Pass", with: @student.pass
     click_on "Update Student"
