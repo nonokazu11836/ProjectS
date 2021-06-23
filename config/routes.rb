@@ -1,6 +1,7 @@
 
 Rails.application.routes.draw do
   get 'pictures/studenthome'
+  root '#index'   #トップページを○○コントローラのindexアクションに設定
   resources :details
   resources :events
   resources :pictures
