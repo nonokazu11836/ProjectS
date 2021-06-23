@@ -12,17 +12,22 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :name %>
+    <%= form.label :名前 %>
     <%= form.text_field :name %>
   </div>
 
   <div class="field">
-    <%= form.label :pass %>
+    <%= form.label :ログインID %>
+    <%= form.text_field :login_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :パスワード %>
     <%= form.text_field :pass %>
   </div>
 
   <div class="field">
-    <%= form.label :gakka_id %>
+    <%= form.label :学科名 %>
     <%= form.number_field :gakka_id %>
   </div>
 

@@ -1,13 +1,15 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Students</h1>
+<h1>学生マスタ</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Pass</th>
-      <th>Gakka</th>
+      <th>名前</th>
+      <th>ID</th>
+      <th>ログインID</th>
+      <th>パスワード</th>
+      <th>学科</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -15,7 +17,9 @@
   <tbody>
     <% @students.each do |student| %>
       <tr>
+        <td><%= student.id %></td>
         <td><%= student.name %></td>
+        <td><%= student.login_id %></td>
         <td><%= student.pass %></td>
         <td><%= student.gakka_id %></td>
         <td><%= link_to 'Show', student %></td>
