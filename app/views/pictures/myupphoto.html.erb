@@ -1,0 +1,29 @@
+<%= stylesheet_link_tag "myupphoto", :media => "all" %>
+<h1>ＭＹ ＵＰ ＰＨＯＴＯ</h1>
+<%=link_to("myupphoto") do %>
+    <button>ホーム</button><br>
+<%end%>
+
+<%= link_to '削除',method: :delete, data: { confirm: 'Are you sure?' } %>
+<div id="main">
+  <ul class="image-list">
+    <li>
+      <div class="image-box">
+        <img class="image" src="/assets/OIP.jpg" alt="foo">
+        <input class="disabled-checkbox" type="checkbox" onclick="return false">
+      </div>
+    </li>
+    <li>
+      <div class="image-box">
+        <img class="image" src="/assets/download.jpg" alt="foo">
+        <input class="disabled-checkbox" type="checkbox" onclick="return false">
+      </div>
+    </li>
+    <li>
+      <div class="image-box">
+        <img class="image" src="/assets/OIP2.jpg" alt="foo">
+        <input class="disabled-checkbox" type="checkbox" onclick="return false">
+      </div>
+    </li>
+  </ul>
+</div>

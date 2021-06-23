@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'pictures/myupphoto'
   resources :details
   resources :events
   resources :pictures
