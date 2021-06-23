@@ -69,6 +69,5 @@ class PicturesController < ApplicationController
 
     #ホーム画面
     def studenthome
-      
     end
 end
