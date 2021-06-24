@@ -1,5 +1,6 @@
 
 Rails.application.routes.draw do
+  get 'pictures/myupphoto'
   get 'pictures/studenthome'
   get 'pictures/se_namecheck'
   get 'students/sample1'
