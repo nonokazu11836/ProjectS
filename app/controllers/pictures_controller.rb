@@ -55,6 +55,9 @@ class PicturesController < ApplicationController
       format.json { head :no_content }
     end
   end
+      #ホーム画面
+      def studenthome
+      end
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -67,7 +70,5 @@ class PicturesController < ApplicationController
       params.require(:picture).permit(:student_id, :place, :date, :event_id)
     end
 
-    #ホーム画面
-    def studenthome
-    end
+
 end
