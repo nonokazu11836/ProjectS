@@ -57,6 +57,9 @@ class PicturesController < ApplicationController
     end 
     redirect_to pictures_path
   end
+      #ホーム画面
+      def studenthome
+      end
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -68,11 +71,7 @@ class PicturesController < ApplicationController
     def picture_params
       params.require(:picture).permit(:student_id, :place, :date, :event_id)
     end
-    def myupphoto
-      @pictures = Picture.all
-    end
-    #ホーム画面
-    def studenthome
-    end
+
+
 end
 
