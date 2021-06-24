@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get 'pictures/myupphoto'
   get 'pictures/studenthome'
   get 'pictures/se_namecheck'
-  get 'students/sample1'
+  get 'pictures/it_member'
   resources :details
   resources :events
   resources :pictures

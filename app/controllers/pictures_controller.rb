@@ -58,6 +58,13 @@ class PicturesController < ApplicationController
     redirect_to pictures_path
   end
 
+
+  def it_member
+    class_id = params[:class_id]
+    @class_member=Student.where('class_id',class_id)
+      render("it_member")
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_picture
@@ -74,5 +81,6 @@ class PicturesController < ApplicationController
     #ホーム画面
     def studenthome
     end
+
 end
 
