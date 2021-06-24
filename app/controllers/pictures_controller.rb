@@ -57,6 +57,9 @@ class PicturesController < ApplicationController
     end 
     redirect_to pictures_path
   end
+      #ホーム画面
+      def studenthome
+      end
 
 
   def it_member
@@ -80,8 +83,7 @@ class PicturesController < ApplicationController
       params.require(:picture).permit(:student_id, :place, :date, :event_id)
     end
     def myupphoto
-      @pictures = Picture.all
+      @picture = Picture.find(params[:id])
     end
-
 end
 
