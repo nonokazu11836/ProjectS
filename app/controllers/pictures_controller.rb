@@ -65,6 +65,10 @@ class PicturesController < ApplicationController
       render("it_member")
   end
 
+  #ホーム画面
+  def studenthome
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_picture
@@ -77,9 +81,6 @@ class PicturesController < ApplicationController
     end
     def myupphoto
       @pictures = Picture.all
-    end
-    #ホーム画面
-    def studenthome
     end
 
 end
