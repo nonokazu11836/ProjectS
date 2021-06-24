@@ -57,6 +57,9 @@ class PicturesController < ApplicationController
     end 
     redirect_to pictures_path
   end
+      #ホーム画面
+      def studenthome
+      end
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -70,9 +73,6 @@ class PicturesController < ApplicationController
     end
     def myupphoto
       @picture = Picture.find(params[:id])
-    end
-    #ホーム画面
-    def studenthome
     end
 end
 
