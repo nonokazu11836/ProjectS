@@ -57,22 +57,18 @@ class PicturesController < ApplicationController
     end 
     redirect_to pictures_path
   end
-      #ホーム画面
-      def studenthome
-      end
 
+  # 検索機能
+  def search
 
-  def it_member
-    class_id = params[:class_id]
-    @class_member=Student.where('class_id',class_id)
-      render("it_member")
   end
+
 
   #ホーム画面
   def studenthome
-    #class_id = params[:class_id]
-    #@class_members = Students.where('class_id',class_id)
-    #render("it_member")
+    gakka_id = params[:gakka_id]
+    @class_members = Student.where(gakka_id:gakka_id)
+    render("it_member")
   end
 
   private
@@ -86,7 +82,7 @@ class PicturesController < ApplicationController
       params.require(:picture).permit(:student_id, :place, :date, :event_id)
     end
     def myupphoto
-      @picture = Picture.find(params[:id])
+      
     end
 end
 
