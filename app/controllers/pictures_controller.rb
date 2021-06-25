@@ -57,9 +57,19 @@ class PicturesController < ApplicationController
     end 
     redirect_to pictures_path
   end
-      #ホーム画面
-      def studenthome
-      end
+
+  # 検索機能
+  def search
+
+  end
+
+
+  #ホーム画面
+  def studenthome
+    gakka_id = params[:gakka_id]
+    @class_members = Student.where(gakka_id:gakka_id)
+    render("it_member")
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
