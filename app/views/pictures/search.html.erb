@@ -1,0 +1,11 @@
+<h1>写真検索</h1>
+
+<%= link_to("/pictures/studenthome") do %>
+<button>ホーム</button>
+<% end %>
+<div class="check_box">
+<%= collection_check_boxes(:student, :student_id, Student.all, :id, :name) %>
+</div>
+<div class="collection_select">
+<%= collection_select(:event, :event_id, Event.all, :id, :name) %>
+</div>
