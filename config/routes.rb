@@ -6,8 +6,9 @@ Rails.application.routes.draw do
   get 'pictures/se_namecheck'
   get 'pictures/it_studentname'
   get 'pictures/it_member'
-  get 'tops/index'
-  post 'tops/index', to: 'pictures#studenthome'
+  get 'students/sample1'
+  get 'students/login'
+  post 'students/login', to: 'students#login'
   post 'pictures/myupphoto', to: 'pictures#destroy'
   get 'pictures/search'
   resources :details
