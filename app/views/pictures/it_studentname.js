@@ -7,7 +7,7 @@ $(function(){$(document).on('click','.change-class',
         };
         //ajaxの処理
         $.ajax({
-            url:"test_html",
+            url:"studenthome",
             type:"GET",
             data:data,
             dataType:"html"
