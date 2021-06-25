@@ -1,5 +1,8 @@
 
 Rails.application.routes.draw do
+  get 'hello/index'
+  get 'hello/login_check'
+  devise_for :accounts
   get 'pictures/myupphoto'
   get 'pictures/studenthome'
   get 'pictures/se_namecheck'
