@@ -67,7 +67,7 @@ class PicturesController < ApplicationController
   #ホーム画面
   def studenthome
     gakka_id = params[:gakka_id]
-    @class_members = Student.where(gakka_id: gakka_id)
+    @class_members = Student.where(gakka_id:gakka_id)
     render("it_member")
   end
 
