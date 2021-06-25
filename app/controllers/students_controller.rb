@@ -56,6 +56,33 @@ class StudentsController < ApplicationController
     end
   end
 
+  ##　6/25追加
+  def login
+    if Student.find_by(login_id: params['login_id']) != nil
+      @id = Student.find_by(login_id: params['login_id']).id
+    else 
+      @id = nil
+    end
+
+    if Student.find_by(pass: params['pass']) != nil
+      @pass = Student.find_by(pass: params['pass']).id
+    else
+      @pass = nil
+    end
+
+    @msg = ""
+
+    if @id == nil || @pass == nil
+      @msg = "入力してください"
+      
+    elsif @id == @pass
+      redirect_to controller: :pictures, action: :studenthome
+      @msg = " "
+    else
+      @msg = "ログイン失敗"
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_student
