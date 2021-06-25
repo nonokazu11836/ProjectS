@@ -74,6 +74,9 @@ class PicturesController < ApplicationController
 
   #ホーム画面
   def studenthome
+    class_id = params[:class_id]
+    @class_members = Students.where('class_id',class_id)
+    render("it_member")
   end
 
   private
