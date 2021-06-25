@@ -5,6 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+#Student.create
 Student.create(name:"岡 鈴奈",    login_id:'201001',pass:'icc-201001',gakka_id:1);
 Student.create(name:"幸田 春奈",  login_id:'201002',pass:'icc-201002',gakka_id:1);
 Student.create(name:"原 ののか",  login_id:'201003',pass:'icc-201003',gakka_id:1);
@@ -41,4 +42,9 @@ Student.create(name:"槇原 隼人",  login_id:'202027',pass:'icc-202026',gakka_
 Student.create(name:"三島 航心",  login_id:'202028',pass:'icc-202027',gakka_id:3);
 Student.create(name:"三谷 香世",  login_id:'202029',pass:'icc-202028',gakka_id:3);
 
+#Event.create
+Event.create(name:"入学式")
+Event.create(name:"サマーキャンプ")
+Event.create(name:"学園祭")
+Event.create(name:"卒業式")
   #image: File.open('保存先のパス')
