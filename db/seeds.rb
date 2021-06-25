@@ -40,3 +40,4 @@ Student.create(name:"原 英寿",    login_id:'202026',pass:'icc-202015',gakka_id:3
 Student.create(name:"槇原 隼人",  login_id:'202027',pass:'icc-202026',gakka_id:3);
 Student.create(name:"三島 航心",　login_id:'202028',pass:'icc-202027',gakka_id:3);
 Student.create(name:"三谷 香世",　login_id:'202029',pass:'icc-202028',gakka_id:3);
+

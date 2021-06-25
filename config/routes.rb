@@ -1,9 +1,12 @@
 
 Rails.application.routes.draw do
-  devise_for :accounts
-  get 'hello/index'
-  get 'hello/login_check'
+  get 'pictures/myupphoto'
   get 'pictures/studenthome'
+  get 'pictures/se_namecheck'
+  get 'pictures/it_member'
+  get 'students/sample1'
+  get 'tops/index'
+  post 'tops/index', to: 'pictures#studenthome'
   resources :details
   resources :events
   resources :pictures

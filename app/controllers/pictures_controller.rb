@@ -49,11 +49,30 @@ class PicturesController < ApplicationController
 
   # DELETE /pictures/1 or /pictures/1.json
   def destroy
+    @user = picture.find(params[:id])
     @picture.destroy
     respond_to do |format|
       format.html { redirect_to pictures_url, notice: "Picture was successfully destroyed." }
       format.json { head :no_content }
-    end
+    end 
+    redirect_to pictures_path
+  end
+      #ホーム画面
+      def studenthome
+      end
+
+
+  def it_member
+    class_id = params[:class_id]
+    @class_member=Student.where('class_id',class_id)
+      render("it_member")
+  end
+
+  #ホーム画面
+  def studenthome
+    class_id = params[:class_id]
+    @class_members = Students.where('class_id',class_id)
+    render("it_member")
   end
 
   private
@@ -66,9 +85,8 @@ class PicturesController < ApplicationController
     def picture_params
       params.require(:picture).permit(:student_id, :place, :date, :event_id)
     end
-
-    #ホーム画面
-    def studenthome
-      
+    def myupphoto
+      @picture = Picture.find(params[:id])
     end
 end
+
