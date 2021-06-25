@@ -61,6 +61,10 @@ class PicturesController < ApplicationController
       def studenthome
       end
 
+  # 検索機能
+  def search
+
+  end
 
   def it_member
     class_id = params[:class_id]

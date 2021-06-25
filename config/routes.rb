@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'students/sample1'
   get 'tops/index'
   post 'tops/index', to: 'pictures#studenthome'
+  get 'pictures/search'
   resources :details
   resources :events
   resources :pictures
