@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   get 'pictures/myupphoto'
   get 'pictures/studenthome'
   get 'pictures/se_namecheck'
+  get 'pictures/it_studentname'
   get 'pictures/it_member'
-  get 'students/sample1'
   get 'tops/index'
   post 'tops/index', to: 'pictures#studenthome'
   resources :details
