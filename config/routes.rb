@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get 'students/sample1'
   get 'students/login'
   post 'students/login', to: 'students#login'
-  post 'pictures/myupphoto', to: 'pictures#destroy'
+  delete :pictures, to: 'pictures#destroy_myupphoto'
   get 'pictures/search'
   resources :details
   resources :events
