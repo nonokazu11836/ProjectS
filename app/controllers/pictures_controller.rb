@@ -57,9 +57,6 @@ class PicturesController < ApplicationController
     end 
     redirect_to pictures_path
   end
-      #ホーム画面
-      def studenthome
-      end
 
   # 検索機能
   def search
@@ -70,17 +67,32 @@ class PicturesController < ApplicationController
     end
   end
 
-  def it_member
-    class_id = params[:class_id]
-    @class_member=Student.where('class_id',class_id)
-      render("it_member")
-  end
 
   #ホーム画面
   def studenthome
-    class_id = params[:class_id]
-    @class_members = Students.where('class_id',class_id)
+    gakka_id = params[:gakka_id]
+    @class_members = Student.where(gakka_id:gakka_id)
     render("it_member")
+  end
+
+  def myupphoto
+    @images = Dir.glob("app/assets/images/*.jpg")
+  end
+  def destroy_myupphoto
+    respond_to do |format|
+      if params[:deletes].blank?
+        format.html { redirect_to admin_articles_path }
+        format.json { render :json, status: :unprocessable_entity } # 多分間違っている TODO
+      end
+      delete_list = params[:deletes].keys
+      ActiveRecord::Base.transaction do
+        if Article.destroy(delete_list)
+          format.html { redirect_to admin_articles_path, notice: 'Article was successfully destroyed.' }
+          format.json { head :no_content }
+        end
+      end
+      rescue
+    end
   end
 
   private
@@ -92,9 +104,6 @@ class PicturesController < ApplicationController
     # Only allow a list of trusted parameters through.
     def picture_params
       params.require(:picture).permit(:student_id, :place, :date, :event_id)
-    end
-    def myupphoto
-      @picture = Picture.find(params[:id])
     end
 end
 

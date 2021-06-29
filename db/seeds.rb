@@ -5,6 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
 #Student.create
 Student.create(name:"岡 鈴奈",    login_id:'201001',pass:'icc-201001',gakka_id:1);
 Student.create(name:"幸田 春奈",  login_id:'201002',pass:'icc-201002',gakka_id:1);
@@ -48,3 +49,4 @@ Event.create(name:"サマーキャンプ")
 Event.create(name:"学園祭")
 Event.create(name:"卒業式")
   #image: File.open('保存先のパス')
+

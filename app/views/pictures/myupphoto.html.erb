@@ -1,29 +1,22 @@
+<%= javascript_pack_tag 'pictures/application' %>
 <%= stylesheet_link_tag "myupphoto", :media => "all" %>
 <h1>ＭＹ ＵＰ ＰＨＯＴＯ</h1>
 <%=link_to("studenthome") do %>
     <button>ホーム</button><br>
 <%end%>
 
-<%= link_to '削除',method: :delete, data: { confirm: 'Are you sure?' } %>
-<div id="main">
-  <ul class="image-list">
-    <li>
-      <div class="image-box">
-        <img class="image" src="/assets/OIP.jpg" alt="foo">
-        <input class="disabled-checkbox" type="checkbox" onclick="return false">
-      </div>
-    </li>
-    <li>
-      <div class="image-box">
-        <img class="image" src="/assets/download.jpg" alt="foo">
-        <input class="disabled-checkbox" type="checkbox" onclick="return false">
-      </div>
-    </li>
-    <li>
-      <div class="image-box">
-        <img class="image" src="/assets/OIP2.jpg" alt="foo">
-        <input class="disabled-checkbox" type="checkbox" onclick="return false">
-      </div>
-    </li>
-  </ul>
+<%= link_to '削除',method: :destroy, data: { confirm: 'Are you sure?' } %>
+<div class="table-wrap">
+  <div id="main">
+    <ul class="image-list">
+    <% @images.each do |image| %>
+      <li>
+        <div class="image-box">
+          <%= image_tag "#{image.split('/').last}", alt: "MyPhoto",class: "image" %>   
+          <input type="checkbox" class="disabled-checkbox" onclick="return false">
+        </div>
+      </li>
+      <% end %>
+    </ul>    
+  </div>
 </div>
