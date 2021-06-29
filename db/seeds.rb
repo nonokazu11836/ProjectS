@@ -48,5 +48,5 @@ Event.create(name:"入学式")
 Event.create(name:"サマーキャンプ")
 Event.create(name:"学園祭")
 Event.create(name:"卒業式")
-  #image: File.open('保存先のパス')
+#image: File.open('保存先のパス')
 
