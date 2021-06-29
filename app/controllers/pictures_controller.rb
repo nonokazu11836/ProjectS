@@ -66,9 +66,9 @@ class PicturesController < ApplicationController
 
   #ホーム画面
   def studenthome
-    gakka_id = params[:gakka_id]
-    @class_members = Student.where(gakka_id:gakka_id)
-    render("it_member")
+  end
+  #医療生徒
+  def 
   end
 
   def myupphoto
@@ -101,5 +101,6 @@ class PicturesController < ApplicationController
     def picture_params
       params.require(:picture).permit(:student_id, :place, :date, :event_id)
     end
+
 end
 
