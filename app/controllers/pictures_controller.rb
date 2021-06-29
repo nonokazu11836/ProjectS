@@ -71,6 +71,26 @@ class PicturesController < ApplicationController
   def 
   end
 
+  def myupphoto
+    @images = Dir.glob("app/assets/images/*.jpg")
+  end
+  def destroy_myupphoto
+    respond_to do |format|
+      if params[:deletes].blank?
+        format.html { redirect_to admin_articles_path }
+        format.json { render :json, status: :unprocessable_entity } # 多分間違っている TODO
+      end
+      delete_list = params[:deletes].keys
+      ActiveRecord::Base.transaction do
+        if Article.destroy(delete_list)
+          format.html { redirect_to admin_articles_path, notice: 'Article was successfully destroyed.' }
+          format.json { head :no_content }
+        end
+      end
+      rescue
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_picture
@@ -81,9 +101,6 @@ class PicturesController < ApplicationController
     def picture_params
       params.require(:picture).permit(:student_id, :place, :date, :event_id)
     end
-    def myupphoto
-      
-    end
-  end
+
 end
 
