@@ -41,3 +41,6 @@ Student.create(name:"槇原 隼人",  login_id:'202027',pass:'icc-202026',gakka_
 Student.create(name:"三島 航心",　login_id:'202028',pass:'icc-202027',gakka_id:3);
 Student.create(name:"三谷 香世",　login_id:'202029',pass:'icc-202028',gakka_id:3);
 
+Gakka.create(name:"医療ビジネス科")
+Gakka.create(name:"情報システム科ITビジネスコース")
+Gakka.create(name:"情報システム科システムエンジニアコース")
