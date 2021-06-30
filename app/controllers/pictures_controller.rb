@@ -101,6 +101,9 @@ class PicturesController < ApplicationController
     def picture_params
       params.require(:picture).permit(:student_id, :place, :date, :event_id)
     end
+    def myupphoto
+      
+    end
+  end
 
-end
 
