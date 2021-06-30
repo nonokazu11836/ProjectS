@@ -60,3 +60,7 @@ Picture.create(student_id:4,place:'/app/assets/images/OIP6.jpg',date:'2021-06-29
 Picture.create(student_id:4,place:'/app/assets/images/OIP7.jpg',date:'2021-06-29',event_id:4);
 Picture.create(student_id:4,place:'/app/assets/images/OIP8.jpg',date:'2021-06-29',event_id:4);
 Picture.create(student_id:4,place:'/app/assets/images/OIP9.jpg',date:'2021-06-29',event_id:4);
+
+Gakka.create(name:"医療");
+Gakka.create(name:"ITビジネス");
+Gakka.create(name:"SE");
