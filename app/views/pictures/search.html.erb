@@ -18,6 +18,6 @@
     </div>
 </form>
 <%= @pictures.each do |obj| %>
-    <%= image_tag 'obj.place' %>
+    <%= image_tag "#{obj.place}", alt: "viewPhoto",class: "image" %>
 <% end %>
 

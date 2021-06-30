@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 2021_06_22_052158) do
   create_table "pictures", force: :cascade do |t|
     t.integer "student_id"
     t.string "place"
-    t.datetime "date"
+    t.date "date"
     t.integer "event_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
