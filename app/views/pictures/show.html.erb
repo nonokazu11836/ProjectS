@@ -9,6 +9,10 @@
   <strong>保存場所:</strong>
   <%= @picture.place %>
 </p>
+<%# 下の三行追加 %>
+<p>
+  <%= image_tag "#{@picture.place}" %>
+</p>
 
 <p>
   <strong>日時:</strong>

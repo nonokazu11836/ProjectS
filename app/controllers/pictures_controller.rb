@@ -49,13 +49,13 @@ class PicturesController < ApplicationController
 
   # DELETE /pictures/1 or /pictures/1.json
   def destroy
-    @user = picture.find(params[:id])
+    @user = Picture.find(params[:id])
     @picture.destroy
     respond_to do |format|
       format.html { redirect_to pictures_url, notice: "Picture was successfully destroyed." }
       format.json { head :no_content }
     end 
-    redirect_to pictures_path
+    # redirect_to pictures_path
   end
 
   # 検索機能
@@ -72,7 +72,7 @@ class PicturesController < ApplicationController
   def studenthome
   end
   #医療生徒
-  def 
+  def iryo
   end
 
   def myupphoto
@@ -108,6 +108,5 @@ class PicturesController < ApplicationController
     def myupphoto
       
     end
-  end
 end
 
