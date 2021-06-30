@@ -58,6 +58,7 @@ class StudentsController < ApplicationController
 
   ##　6/25追加
   def login
+    @msg = " "
     if Student.find_by(login_id: params['login_id']) != nil
       @id = Student.find_by(login_id: params['login_id']).id
     else 
@@ -69,9 +70,7 @@ class StudentsController < ApplicationController
     else
       @pass = nil
     end
-
-    @msg = ""
-
+    
     if @id == nil || @pass == nil
       @msg = "入力してください"
       

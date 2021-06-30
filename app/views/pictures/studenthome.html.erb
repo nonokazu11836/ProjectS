@@ -1,18 +1,28 @@
 <h1>ホーム画面</h1> 
- <%= link_to ('/tops/index') do %>
+ <%= link_to ('/students/login') do %>
   <button>ログアウト</button>
 <% end %><br>
-<%= link_to ("/pictures") do %>
-  <button>マイアップ写真</button>
-<% end %><br>
-<%= link_to ("/pictures") do %>
-  <button>写真確認</button><br>
-<% end %>
-<div>
-  <input class='favorite styled change-class' id="1" type="button" value="1">
-  <input class='favorite styled change-class' id="2" type="button" value="2">
-  <input class='favorite styled change-class' id="3" type="button" value="3">
-</div>
-<div id="content-field">
-</div>
 
+<%= link_to ("/pictures") do %>
+  <p><button>マイアップ写真</button></p>
+<% end %>
+<%= link_to ("/pictures") do %>
+  <p><button>写真確認</button></p>
+<% end %><br>
+
+<%= link_to ('') do %>
+  <button>医療学科</button>
+<% end %>
+<%= link_to ('/students/index') do %>
+  <button>IT学科</button>
+<% end %>
+<%= link_to ('/tops/index') do %>
+  <button>エンジニア学科</button>
+<% end %><br>
+
+<p>
+  <%= collection_select(:event, :event_id, Event.all, :id, :name) %>
+</p>
+<p><input type="text" name="StudentNameTxt" size="30"></p>
+
+<p><input type="submit" value="アップする"></p>
