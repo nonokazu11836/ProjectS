@@ -105,5 +105,5 @@ class PicturesController < ApplicationController
       
     end
   end
-
+end
 
