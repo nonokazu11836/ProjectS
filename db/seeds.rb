@@ -44,9 +44,19 @@ Student.create(name:"三島 航心",  login_id:'202028',pass:'icc-202027',gakka_
 Student.create(name:"三谷 香世",  login_id:'202029',pass:'icc-202028',gakka_id:3);
 
 #Event.create
-Event.create(name:"入学式")
-Event.create(name:"サマーキャンプ")
-Event.create(name:"学園祭")
-Event.create(name:"卒業式")
-#image: File.open('保存先のパス')
+Event.create(name:"入学式");
+Event.create(name:"サマーキャンプ");
+Event.create(name:"学園祭");
+Event.create(name:"卒業式");
+  #image: File.open('保存先のパス')
 
+Picture.create(student_id:1,place:'/app/assets/images/download.jpg',date:'2021-06-27',event_id:1);
+Picture.create(student_id:2,place:'/app/assets/images/OIP.jpg',date:'2021-06-28',event_id:2);
+Picture.create(student_id:2,place:'/app/assets/images/OIP2.jpg',date:'2021-06-28',event_id:2);
+Picture.create(student_id:3,place:'/app/assets/images/OIP3.jpg',date:'2021-06-29',event_id:3);
+Picture.create(student_id:3,place:'/app/assets/images/OIP4.jpg',date:'2021-06-29',event_id:3);
+Picture.create(student_id:3,place:'/app/assets/images/OIP5.jpg',date:'2021-06-29',event_id:3);
+Picture.create(student_id:4,place:'/app/assets/images/OIP6.jpg',date:'2021-06-29',event_id:4);
+Picture.create(student_id:4,place:'/app/assets/images/OIP7.jpg',date:'2021-06-29',event_id:4);
+Picture.create(student_id:4,place:'/app/assets/images/OIP8.jpg',date:'2021-06-29',event_id:4);
+Picture.create(student_id:4,place:'/app/assets/images/OIP9.jpg',date:'2021-06-29',event_id:4);

@@ -60,7 +60,11 @@ class PicturesController < ApplicationController
 
   # 検索機能
   def search
-
+    @pictures = Array.new
+    @pictures = Picture.all
+    if request.post?
+      @pictures = Picture.where(:detail.student_id == params[:student_id],params[:event_id])
+    end
   end
 
 
