@@ -72,7 +72,7 @@ class PicturesController < ApplicationController
   def studenthome
   end
   #医療生徒
-  def 
+  def iryo
   end
 
   def myupphoto
@@ -108,6 +108,5 @@ class PicturesController < ApplicationController
     def myupphoto
       
     end
-  end
 end
 
