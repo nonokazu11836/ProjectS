@@ -71,13 +71,13 @@ class StudentsController < ApplicationController
       @pass = nil
     end
     
-    if @id == nil || @pass == nil
+    if @id == nil && @pass == nil
       @msg = "入力してください"
       
     elsif @id == @pass
       redirect_to controller: :pictures, action: :studenthome
       @msg = " "
-    else
+    elsif @id != @pass
       @msg = "ログイン失敗"
     end
   end
