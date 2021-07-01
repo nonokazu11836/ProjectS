@@ -77,7 +77,7 @@ class StudentsController < ApplicationController
     elsif @id == @pass
       redirect_to controller: :pictures, action: :studenthome
       @msg = " "
-    elsif @id != @pass
+    else
       @msg = "ログイン失敗"
     end
   end
