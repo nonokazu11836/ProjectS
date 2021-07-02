@@ -1,13 +1,5 @@
 <h1>ホーム画面</h1> 
- <%= link_to ('/students/login') do %>
-  <button>ログアウト</button>
-<% end %><br>
-
-
-<% if user_signed_in? %>
-  <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
-<% end %>
-
+<%= @a %>
 
 <%= link_to ("/pictures") do %>
   <p><button>マイアップ写真</button></p>
@@ -18,3 +10,9 @@
 <%= link_to ("/pictures/new") do %>
   <p><button>写真アップ</button></p>
 <% end %>
+
+
+<% if user_signed_in? %>
+  <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+<% end %>
+

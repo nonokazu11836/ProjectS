@@ -71,6 +71,7 @@ class PicturesController < ApplicationController
 
   #ホーム画面
   def studenthome
+    @a = Student.find_by(student_id: current_user.student_id).name
   end
   #医療生徒
   def iryo
