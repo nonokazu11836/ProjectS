@@ -1,5 +1,6 @@
 class PicturesController < ApplicationController
   before_action :set_picture, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!  #追加
 
   # GET /pictures or /pictures.json
   def index
@@ -95,10 +96,15 @@ class PicturesController < ApplicationController
     end
   end
 
+  #def myup2
+  #  #ログインしたIDと同じIDの人が登録した写真のみ出力
+  #  @no = Picture.where(student_id == $login)
+  #end
+
   private
-    # Use callbacks to share common setup or constraints between actions.
+     #Use callbacks to share common setup or constraints between actions.
     def set_picture
-      @picture = Picture.find(params[:id])
+     @picture = Picture.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
@@ -108,5 +114,6 @@ class PicturesController < ApplicationController
     def myupphoto
       
     end
-end
+  end
+
 
