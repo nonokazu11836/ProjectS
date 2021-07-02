@@ -1,3 +1,3 @@
 class Gakka < ApplicationRecord
-    has_many :student
+    # has_many :student
 end
