@@ -14,21 +14,7 @@
 <% end %>
 <%= link_to ("/pictures") do %>
   <p><button>写真確認</button></p>
-<% end %><br>
-
-<%= link_to ('') do %>
-  <button>医療学科</button>
 <% end %>
-<%= link_to ('/students/index') do %>
-  <button>IT学科</button>
+<%= link_to ("/pictures/new") do %>
+  <p><button>写真アップ</button></p>
 <% end %>
-<%= link_to ('/tops/index') do %>
-  <button>エンジニア学科</button>
-<% end %><br>
-
-<p>
-  <%= collection_select(:event, :event_id, Event.all, :id, :name) %>
-</p>
-
-
-<p><input type="submit" value="アップする"></p>

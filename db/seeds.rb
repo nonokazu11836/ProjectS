@@ -50,7 +50,6 @@ Event.create(name:"学園祭");
 Event.create(name:"卒業式");
   #image: File.open('保存先のパス')
 
-
 Gakka.create(name:"医療");
 Gakka.create(name:"ITビジネス");
 Gakka.create(name:"SE");

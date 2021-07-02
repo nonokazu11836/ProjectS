@@ -64,7 +64,7 @@ class PicturesController < ApplicationController
     @pictures = Array.new
     @pictures = Picture.all
     if request.post?
-      @pictures = Picture.where(:detail.student_id == params[:student_id],params[:event_id])
+      @pictures = Picture.where(:detail.student_id == params[:student_id],:picture.event_id == params[:event_id])
     end
   end
 
