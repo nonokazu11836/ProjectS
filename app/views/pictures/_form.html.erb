@@ -24,10 +24,10 @@
 
   <div class="field">
     <%= form.label :行事名 %>
-    <%= form.number_field :event_id %>
+    <%= form.collection_select(:event_id,Event.all,:id,:name) %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <h1><%= form.submit %></h1>
   </div>
 <% end %>

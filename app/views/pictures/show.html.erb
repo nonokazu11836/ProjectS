@@ -1,15 +1,7 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>投稿者:</strong>
-  <%= @picture.student_id %>
-</p>
+<h1>投稿しました！</h1>
 
-<p>
-  <strong>保存場所:</strong>
-  <%= @picture.place %>
-</p>
-<%# 下の三行追加 %>
 <p>
   <%= image_tag "#{@picture.place}" %>
 </p>
@@ -19,10 +11,9 @@
   <%= @picture.date %>
 </p>
 
-<p>
-  <strong>行事名:</strong>
-  <%= @picture.event_id %>
-</p>
-
-<%= link_to 'Edit', edit_picture_path(@picture) %> |
-<%= link_to 'Back', pictures_path %>
+<%= link_to ("/pictures/studenthome") do %>
+  <button> 　　ホームに戻る 　　</button>
+<% end %><br>
+<%= link_to ("/pictures/new") do %>
+  <button> 　　もう一枚投稿 　　</button>
+<% end %><br>
