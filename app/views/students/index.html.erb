@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th>Id</th>
       <th>Name</th>
       <th>Student</th>
       <th>Gakka</th>
@@ -15,6 +16,7 @@
   <tbody>
     <% @students.each do |student| %>
       <tr>
+        <td><%= student.id %></td>
         <td><%= student.name %></td>
         <td><%= student.student_id %></td>
         <td><%= student.gakka_id %></td>

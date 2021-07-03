@@ -1,17 +1,12 @@
 <h1>ホーム画面</h1> 
- <%= link_to ('/students/login') do %>
-  <button>ログアウト</button>
-<% end %><br>
-
-
-<% if user_signed_in? %>
-  <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
-<% end %>
 
 
 <%= link_to ("/pictures") do %>
   <p><button>マイアップ写真</button></p>
 <% end %>
+
+<p><%= link_to('my up 写真', '/pictures/myup2') %></p>
+
 <%= link_to ("/pictures") do %>
   <p><button>写真確認</button></p>
 <% end %><br>
@@ -32,3 +27,8 @@
 
 
 <p><input type="submit" value="アップする"></p>
+
+
+<% if user_signed_in? %>
+  <p><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></p>
+<% end %>

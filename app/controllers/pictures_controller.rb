@@ -15,6 +15,7 @@ class PicturesController < ApplicationController
   # GET /pictures/new
   def new
     @picture = Picture.new
+
   end
 
   # GET /pictures/1/edit
@@ -24,6 +25,8 @@ class PicturesController < ApplicationController
   # POST /pictures or /pictures.json
   def create
     @picture = Picture.new(picture_params)
+    student = Student.find_by(student_id: current_user.student_id).id
+    @picture.student_id = student
 
     respond_to do |format|
       if @picture.save
@@ -97,10 +100,10 @@ class PicturesController < ApplicationController
     end
   end
 
-  #def myup2
-  #  #ログインしたIDと同じIDの人が登録した写真のみ出力
-  #  @no = Picture.where(student_id == $login)
-  #end
+  def myup2
+    student = Student.find_by(student_id: current_user.student_id)
+    @pictures = Picture.where(student_id: student.id)
+  end
 
   private
      #Use callbacks to share common setup or constraints between actions.
