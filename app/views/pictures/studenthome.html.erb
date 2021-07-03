@@ -7,20 +7,6 @@
   <p><button>写真確認</button></p>
 <% end %><br>
 
-<%= link_to ('') do %>
-  <button>医療学科</button>
-<% end %>
-<%= link_to ('/students/index') do %>
-  <button>IT学科</button>
-<% end %>
-<%= link_to ('/tops/index') do %>
-  <button>エンジニア学科</button>
-<% end %><br>
-
-<p>
-  <%= collection_select(:event, :event_id, Event.all, :id, :name) %>
-</p>
-
 <p><%= link_to('画像UP！', '/pictures/new') %></p>
 
 
