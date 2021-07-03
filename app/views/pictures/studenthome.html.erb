@@ -1,13 +1,15 @@
 <h1>ホーム画面</h1> 
 
 
-<p><%= link_to('my up 写真', '/pictures/myup2') %></p>
-
-<%= link_to ("/pictures") do %>
-  <p><button>写真確認</button></p>
+<%= link_to ("/pictures/myup2") do %>
+  <button>自分が投稿した写真</button>
 <% end %><br>
-
-<p><%= link_to('画像UP！', '/pictures/new') %></p>
+<%= link_to ("/pictures/allup") do %>
+  <button>　　全ての写真　　</button>
+<% end %><br>
+<%= link_to ("/pictures/new") do %>
+  <button> 　　画像 UP！ 　　</button>
+<% end %><br>
 
 
 <% if user_signed_in? %>

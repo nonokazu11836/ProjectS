@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get 'pictures/studenthome'
   get 'pictures/se_namecheck'
   get 'pictures/myup2'
+  get 'pictures/allup'
 
   delete :pictures, to: 'pictures#destroy_myupphoto'
   get 'pictures/search'

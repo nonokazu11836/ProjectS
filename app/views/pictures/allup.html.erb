@@ -1,0 +1,8 @@
+<h1>全ての写真</h1>
+
+
+<% @pictures.each do |picture| %>
+  <p><%= image_tag "#{picture.place}" %></p>
+<% end %>
+
+<p><%= link_to('ホーム', '/pictures/studenthome') %></p>

@@ -106,7 +106,7 @@ class PicturesController < ApplicationController
   end
 
   def allup
-
+    @pictures = Picture.all
   end
 
   private
