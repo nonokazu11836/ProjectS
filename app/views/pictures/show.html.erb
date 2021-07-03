@@ -5,11 +5,17 @@
 <p>
   <%= image_tag "#{@picture.place}" %>
 </p>
+<%= form_with(model:@picture,url:{controller:'pictures', action:'show'}) do |form| %>
 
-<p>
-  <strong>日時:</strong>
-  <%= @picture.date %>
-</p>
+  <%= form.label :映っている人 %>
+  <div class="field">
+  <% Student.all.each do |f| %>
+    <%= form.label f.name %>    
+  <%= form.check_box(f.id) %>
+  <% end %>
+  </div>
+
+<% end %>
 
 <%= link_to ("/pictures/studenthome") do %>
   <button> 　　ホームに戻る 　　</button>
