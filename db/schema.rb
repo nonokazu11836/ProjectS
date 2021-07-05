@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(version: 2021_07_02_033543) do
   create_table "students", force: :cascade do |t|
     t.string "name"
     t.string "student_id"
-    t.string "gakka_id"
+    t.integer "gakka_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
