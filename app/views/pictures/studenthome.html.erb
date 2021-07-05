@@ -1,18 +1,17 @@
 <h1>ホーム画面</h1> 
- <%= link_to ('/tops/index') do %>
-  <button>ログアウト</button>
-<% end %><br>
-<%= link_to ("/pictures") do %>
-  <button>マイアップ写真</button>
-<% end %><br>
-<%= link_to ("/pictures") do %>
-  <button>写真確認</button><br>
-<% end %>
-<div>
-  <input class='favorite styled change-class' id="1" type="button" value="1">
-  <input class='favorite styled change-class' id="2" type="button" value="2">
-  <input class='favorite styled change-class' id="3" type="button" value="3">
-</div>
-<div id="content-field">
-</div>
 
+
+<%= link_to ("/pictures/myup2") do %>
+  <button>自分が投稿した写真</button>
+<% end %><br>
+<%= link_to ("/pictures/allup") do %>
+  <button>　　全ての写真　　</button>
+<% end %><br>
+<%= link_to ("/pictures/new") do %>
+  <button> 　　画像 UP！ 　　</button>
+<% end %><br>
+
+
+<% if user_signed_in? %>
+  <p><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></p>
+<% end %>

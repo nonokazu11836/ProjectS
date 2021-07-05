@@ -2,12 +2,10 @@
 
 one:
   name: MyString
-  login_id: MyString
-  pass: MyString
+  student_id: 1
   gakka_id: 1
 
 two:
   name: MyString
-  login_id: MyString
-  pass: MyString
+  student_id: 1
   gakka_id: 1

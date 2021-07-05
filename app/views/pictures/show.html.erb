@@ -1,24 +1,25 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>投稿者:</strong>
-  <%= @picture.student_id %>
-</p>
+<h1>投稿しました！</h1>
 
 <p>
-  <strong>保存場所:</strong>
-  <%= @picture.place %>
+  <%= image_tag "#{@picture.place}" %>
 </p>
+<%= form_with(model:@picture,url:{controller:'pictures', action:'show'}) do |form| %>
 
-<p>
-  <strong>日時:</strong>
-  <%= @picture.date %>
-</p>
+  <%= form.label :映っている人 %>
+  <div class="field">
+  <% Student.all.each do |f| %>
+    <%= form.label f.name %>    
+    <%= form.check_box(f.id) %>
+  <% end %>
+  </div>
 
-<p>
-  <strong>行事名:</strong>
-  <%= @picture.event_id %>
-</p>
+<% end %>
 
-<%= link_to 'Edit', edit_picture_path(@picture) %> |
-<%= link_to 'Back', pictures_path %>
+<%= link_to ("/pictures/studenthome") do %>
+  <button> 　　ホームに戻る 　　</button>
+<% end %><br>
+<%= link_to ("/pictures/new") do %>
+  <button> 　　もう一枚投稿 　　</button>
+<% end %><br>

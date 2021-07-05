@@ -1,11 +1,23 @@
+<%= stylesheet_link_tag "search", :media => "all" %>
 <h1>写真検索</h1>
-
 <%= link_to("/pictures/studenthome") do %>
 <button>ホーム</button>
 <% end %>
-<div class="check_box">
-<%= collection_check_boxes(:student, :student_id, Student.all, :id, :name) %>
-</div>
-<div class="collection_select">
-<%= collection_select(:event, :event_id, Event.all, :id, :name) %>
-</div>
+<form>
+    <div class="check_box">
+        <h4>生徒名</h4>
+        <%= collection_check_boxes(:student, :student_id, Student.all, :id, :name) %>
+    </div>
+    <div class="collection_select">
+        <p>イベント
+        <%= collection_select(:event, :event_id, Event.all, :id, :name) %>
+        </p>
+    </div>
+    <div class="submit">
+        <%= submit_tag("検索") %>
+    </div>
+</form>
+<%= @pictures.each do |obj| %>
+    <%= image_tag "#{obj.place}", alt: "viewPhoto",class: "image" %>
+<% end %>
+

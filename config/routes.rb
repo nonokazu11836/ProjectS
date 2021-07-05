@@ -1,14 +1,18 @@
 
 Rails.application.routes.draw do
+
+  devise_for :users, controllers: {
+    sessions: 'users/sessions',
+    registrations: 'users/registrations'
+  }
+
   get 'pictures/myupphoto'
   post 'pictures/myupphoto'
   get 'pictures/studenthome'
   get 'pictures/se_namecheck'
-  get 'pictures/it_studentname'
-  get 'pictures/it_member'
-  get 'students/sample1'
-  get 'students/login'
-  post 'students/login', to: 'students#login'
+  get 'pictures/myup2'
+  get 'pictures/allup'
+
   delete :pictures, to: 'pictures#destroy_myupphoto'
   get 'pictures/search'
   resources :details
@@ -16,6 +20,9 @@ Rails.application.routes.draw do
   resources :pictures
   resources :gakkas
   resources :students
+
+  root 'pictures#studenthome'
+  
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
 

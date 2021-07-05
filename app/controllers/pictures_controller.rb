@@ -1,5 +1,7 @@
 class PicturesController < ApplicationController
   before_action :set_picture, only: %i[ show edit update destroy ]
+  ##
+  before_action :authenticate_user!
 
   # GET /pictures or /pictures.json
   def index
@@ -13,6 +15,7 @@ class PicturesController < ApplicationController
   # GET /pictures/new
   def new
     @picture = Picture.new
+
   end
 
   # GET /pictures/1/edit
@@ -22,6 +25,8 @@ class PicturesController < ApplicationController
   # POST /pictures or /pictures.json
   def create
     @picture = Picture.new(picture_params)
+    student = Student.find_by(student_id: current_user.student_id).id
+    @picture.student_id = student
 
     respond_to do |format|
       if @picture.save
@@ -49,26 +54,30 @@ class PicturesController < ApplicationController
 
   # DELETE /pictures/1 or /pictures/1.json
   def destroy
-    @user = picture.find(params[:id])
+    @user = Picture.find(params[:id])
     @picture.destroy
     respond_to do |format|
       format.html { redirect_to pictures_url, notice: "Picture was successfully destroyed." }
       format.json { head :no_content }
     end 
-    redirect_to pictures_path
+    # redirect_to pictures_path
   end
 
   # 検索機能
   def search
-
+    @pictures = Array.new
+    @pictures = Picture.all
+    if request.post?
+      @pictures = Picture.where(:detail.student_id == params[:student_id],params[:event_id])
+    end
   end
 
 
   #ホーム画面
   def studenthome
-    gakka_id = params[:gakka_id]
-    @class_members = Student.where(gakka_id:gakka_id)
-    render("it_member")
+  end
+  #医療生徒
+  def iryo
   end
 
   def myupphoto
@@ -91,15 +100,28 @@ class PicturesController < ApplicationController
     end
   end
 
+  def myup2
+    student = Student.find_by(student_id: current_user.student_id)
+    @pictures = Picture.where(student_id: student.id)
+  end
+
+  def allup
+    @pictures = Picture.all
+  end
+
   private
-    # Use callbacks to share common setup or constraints between actions.
+     #Use callbacks to share common setup or constraints between actions.
     def set_picture
-      @picture = Picture.find(params[:id])
+     @picture = Picture.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
     def picture_params
       params.require(:picture).permit(:student_id, :place, :date, :event_id)
     end
-end
+    def myupphoto
+      
+    end
+  end
+
 

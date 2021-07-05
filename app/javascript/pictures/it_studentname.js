@@ -6,18 +6,14 @@ $(function(){
         };
         //ajaxの処理
         $ajax({
-            url:'pictures/it_member',
+            url:'it_member',
             type:"GET",
             data:data,
             dataType:"html"
         })
-        //成功時処理
-        .done(function(data){
-            $('#content-field').html(data);
-        })
         //失敗時処理
         .fail(function(){
             alert('データの取得に失敗しました。')
-        });
+        })
     });
 });
