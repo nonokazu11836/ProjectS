@@ -10,7 +10,6 @@
       </ul>
     </div>
   <% end %>
-  
   <div class="field">
     <%= form.label :保存場所 %>
     <%#<%= form.text_field :place %>
@@ -24,10 +23,10 @@
 
   <div class="field">
     <%= form.label :行事名 %>
-    <%= form.collection_select(:event, Event.all, :id, :name) %>
+    <%= form.collection_select(:event_id,Event.all,:id,:name) %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <h1><%= form.submit %></h1>
   </div>
 <% end %>

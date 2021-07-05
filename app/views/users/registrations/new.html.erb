@@ -4,14 +4,14 @@
   <%= render "users/shared/error_messages", resource: resource %>
 
   <div class="field">
-    <%= f.label :email, "メールアドレス" %><br />
+    <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
   <div class="field">
-    <%= f.label :student_id, "学生番号" %><br />
-    <%= f.text_field :student_id, autofocus: true %>
-  </div>
+  <%= f.label :student_id %><br />
+  <%= f.text_field :student_id, autofocus: true %>
+</div>
 
   <div class="field">
     <%= f.label :password %>

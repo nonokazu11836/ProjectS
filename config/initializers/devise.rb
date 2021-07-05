@@ -14,7 +14,7 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = 'c8e726e84132822a53a1064ed15eec281b34e8ff2d9a516d4be22ff8f4bf460d37987ac360d45b9cb91ea8a72a473271f4f5e61a2ef4d26506cfc90ff14a87fa'
+  # config.secret_key = '941354f25462f2a09bb56b367209433c01911a862c31cb8d70f85cbcce57d9a9924d7b8d6a9cd212a7ac770383c20e4c7f8dfa86b2c8cb27f37642c88215c735'
 
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
@@ -126,7 +126,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 12
 
   # Set up a pepper to generate the hashed password.
-  # config.pepper = '3a644f495252c3f0a1ab6996cf680455f2887c8be3a2e369b49b914981134ea59cd17d42dedea25c1ece3b68f92c4ffd5e06935d9616e344b3286a773fe2ceb5'
+  # config.pepper = '19c8bea6aa6d09bf6c63127c8c2dfa9db6dd46a1e5f35dfb864385ea6560f1fa0607475394a40332318fd371d121d7806920f758489f6638ea1a3d92794b2360'
 
   # Send a notification to the original email when the user's email is changed.
   # config.send_email_changed_notification = false
@@ -244,7 +244,7 @@ Devise.setup do |config|
   # Turn scoped views on. Before rendering "sessions/new", it will first check for
   # "users/sessions/new". It's turned off by default because it's slower if you
   # are using only default views.
-  config.scoped_views = true
+  # config.scoped_views = false
 
   # Configure the default scope given to Warden. By default it's the first
   # devise role declared in your routes (usually :user).
@@ -308,10 +308,4 @@ Devise.setup do |config|
   # When set to false, does not sign a user in automatically after their password is
   # changed. Defaults to true, so a user is signed in automatically after changing a password.
   # config.sign_in_after_change_password = true
-
-
-  #ログインの際student_idでログインする
-  config.authentication_keys = [ :student_id ]
-  config.case_insensitive_keys = [ :student_id ]
-  config.strip_whitespace_keys = [ :student_id ]
 end

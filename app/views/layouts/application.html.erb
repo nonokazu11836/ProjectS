@@ -17,7 +17,8 @@
   <body class ="container">
   <% if user_signed_in? %>
     <h3>ログイン中</h3>
-    <p><%= current_user.student_id %><p>
+    <p><%= current_user.student_id %></p>
+    <p><%= Student.find_by(student_id: current_user.student_id).name %></p>
   <% end %>
     <%= yield %>
   </body>
