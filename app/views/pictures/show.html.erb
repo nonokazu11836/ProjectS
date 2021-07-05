@@ -11,7 +11,7 @@
   <div class="field">
   <% Student.all.each do |f| %>
     <%= form.label f.name %>    
-  <%= form.check_box(f.id) %>
+    <%= form.check_box(f.id) %>
   <% end %>
   </div>
 
