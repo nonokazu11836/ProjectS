@@ -13,6 +13,9 @@ Rails.application.routes.draw do
   get 'pictures/myup2'
   get 'pictures/allup'
 
+  post 'pictures/show' , to: 'pictures#tagend'
+  get 'pictures/tagend'
+
   delete :pictures, to: 'pictures#destroy_myupphoto'
   get 'pictures/search'
   resources :details

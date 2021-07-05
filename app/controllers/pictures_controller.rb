@@ -100,14 +100,21 @@ class PicturesController < ApplicationController
     end
   end
 
-  def myup2
+  def myup2 #自分の投稿した画像のページ
     student = Student.find_by(student_id: current_user.student_id)
     @pictures = Picture.where(student_id: student.id)
   end
 
-  def allup
+  def allup #全ての写真のページ
     @pictures = Picture.all
   end
+
+  def tagend  #タグ送信した後のページ
+    tag = []
+    tag = params[:picture]
+  end
+
+
 
   private
      #Use callbacks to share common setup or constraints between actions.
