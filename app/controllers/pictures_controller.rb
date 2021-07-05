@@ -109,9 +109,15 @@ class PicturesController < ApplicationController
     @pictures = Picture.all
   end
 
-  def tagend  #タグ送信した後のページ
-    tag = []
-    tag = params[:picture]
+  def tagend  #タグ送信した後のページ 7月5日追加
+    @tag = [5]
+    
+    5.times do |i|
+      if params["student_id#{i+1}"] != 0 || params["student_id#{i+1}"] != nil
+        @tag[i] = Student.find_by(student_id: params["student_id#{i+1}"])
+      end
+    end
+    
   end
 
 

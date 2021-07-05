@@ -1,6 +1,8 @@
-<h1>タグ送信完了</h1>
+<h1>投稿しました！</h1>
 
-
+<% @tag.each do |t| %>
+  <p><%= t.name %></p>
+<% end %>
 
 
 <%= link_to ("/pictures/studenthome") do %>
