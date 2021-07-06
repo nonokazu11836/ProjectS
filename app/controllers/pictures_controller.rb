@@ -65,13 +65,13 @@ class PicturesController < ApplicationController
   end
 
   # 検索機能
-  def search
-    @pictures = Array.new
-    @pictures = Picture.all
-    if request.post?
-      @pictures = Picture.where(:detail.student_id == params[:student_id],:picture.event_id == params[:event_id])
-    end
-  end
+  #def search
+  #  @pictures = Array.new
+  #  @pictures = Picture.all
+  #  if request.post?
+  #    @pictures = Picture.where(:detail.student_id == params[:student_id],:picture.event_id == params[:event_id])
+  #  end
+  #end
 
   def search2 #7月6日付け加え　allupに付け加えた検索機能
     detail_picture = Detail.where(student_id: params[:search])
@@ -90,28 +90,28 @@ class PicturesController < ApplicationController
   def studenthome
   end
   #医療生徒
-  def iryo
-  end
+  #def iryo
+  #end
 
-  def myupphoto
-    @images = Dir.glob("app/assets/images/*.jpg")
-  end
-  def destroy_myupphoto
-    respond_to do |format|
-      if params[:deletes].blank?
-        format.html { redirect_to admin_articles_path }
-        format.json { render :json, status: :unprocessable_entity } # 多分間違っている TODO
-      end
-      delete_list = params[:deletes].keys
-      ActiveRecord::Base.transaction do
-        if Article.destroy(delete_list)
-          format.html { redirect_to admin_articles_path, notice: 'Article was successfully destroyed.' }
-          format.json { head :no_content }
-        end
-      end
-      rescue
-    end
-  end
+  #def myupphoto
+  #  @images = Dir.glob("app/assets/images/*.jpg")
+  #end
+  #def destroy_myupphoto
+  #  respond_to do |format|
+  #    if params[:deletes].blank?
+  #      format.html { redirect_to admin_articles_path }
+  #      format.json { render :json, status: :unprocessable_entity } # 多分間違っている TODO
+  #    end
+  #    delete_list = params[:deletes].keys
+  #    ActiveRecord::Base.transaction do
+  #      if Article.destroy(delete_list)
+  #        format.html { redirect_to admin_articles_path, notice: 'Article was successfully destroyed.' }
+  #        format.json { head :no_content }
+  #      end
+  #    end
+  #    rescue
+  #  end
+  #end
 
   def myup2 #自分の投稿した画像のページ
     student = Student.find_by(student_id: current_user.student_id)
@@ -156,9 +156,9 @@ class PicturesController < ApplicationController
     def picture_params
       params.require(:picture).permit(:student_id, :place, :date, :event_id )
     end
-    def myupphoto
-      
-    end
+    #def myupphoto
+    #  
+    #end
   end
 
 
