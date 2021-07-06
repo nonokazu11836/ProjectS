@@ -74,8 +74,15 @@ class PicturesController < ApplicationController
   end
 
   def search2 #7月6日付け加え　allupに付け加えた検索機能
-    detail_picture = Detail.find_by(student_id: params[:search])
-    @pictures = Picture.where(id: detail_picture.picture_id)
+    detail_picture = Detail.where(student_id: params[:search])
+
+    arr = []
+    detail_picture.each do |d|
+      arr << d.picture_id
+    end
+
+    @pictures = Picture.where("id IN (?)", arr )
+
   end
   
 
