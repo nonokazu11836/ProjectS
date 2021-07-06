@@ -28,6 +28,7 @@ class PicturesController < ApplicationController
     student = Student.find_by(student_id: current_user.student_id).id
     @picture.student_id = student
 
+    
     respond_to do |format|
       if @picture.save
         format.html { redirect_to @picture, notice: "Picture was successfully created." }
@@ -72,6 +73,11 @@ class PicturesController < ApplicationController
     end
   end
 
+  def search2 #7月6日付け加え　allupに付け加えた検索機能
+    detail_picture = Detail.find_by(student_id: params[:search])
+    @pictures = Picture.where(id: detail_picture.picture_id)
+  end
+  
 
   #ホーム画面
   def studenthome
@@ -100,14 +106,38 @@ class PicturesController < ApplicationController
     end
   end
 
-  def myup2
+  def myup2 #自分の投稿した画像のページ
     student = Student.find_by(student_id: current_user.student_id)
     @pictures = Picture.where(student_id: student.id)
   end
 
-  def allup
+  def allup #全ての写真のページ
     @pictures = Picture.all
   end
+
+  def tagend  #タグ送信した後のページ 7月5日追加
+    #@picture_id = params[:picture_id]
+    @tag = [5]
+    
+    5.times do |i|
+      if params["student_id#{i+1}"] != 0 
+        @tag[i] = Student.find_by(student_id: params["student_id#{i+1}"])
+      end
+    end
+
+    # detailテーブルに新規情報を入れる
+    # 投稿したpicture_idと映っている人のstudent_idを保存
+    5.times do |i|
+      if @tag[i] != nil
+        Detail.create(
+          picture_id: params[:picture_id],
+          student_id: @tag[i].id
+        )
+      end
+    end
+    
+  end
+
 
   private
      #Use callbacks to share common setup or constraints between actions.
@@ -117,7 +147,7 @@ class PicturesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def picture_params
-      params.require(:picture).permit(:student_id, :place, :date, :event_id)
+      params.require(:picture).permit(:student_id, :place, :date, :event_id )
     end
     def myupphoto
       

@@ -17,6 +17,15 @@ Rails.application.routes.draw do
   get 'pictures/se_namecheck'
   get 'students/login'
   post 'students/login', to: 'students#login'
+  get 'pictures/myup2'
+  get 'pictures/allup'
+
+  post 'pictures/show' , to: 'pictures#tagend'
+  get 'pictures/tagend'
+
+  get 'pictures/search2'
+  post 'pictures/allup' , to: 'pictures#search2'
+  
   delete :pictures, to: 'pictures#destroy_myupphoto'
   get 'pictures/search'
 
