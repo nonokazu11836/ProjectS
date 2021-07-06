@@ -1,5 +1,11 @@
 <h1>全ての写真</h1>
 
+<%= form_with(url:{controller:'pictures', action:'allup'}) do |form| %>
+
+  <%= form.collection_select(:search , Student.all, :id, :name) %>
+
+  <%= form.submit "送信" %>
+<% end %>
 
 <% @pictures.each do |picture| %>
   <p><%= image_tag "#{picture.place}" %></p>

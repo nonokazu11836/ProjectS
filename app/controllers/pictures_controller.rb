@@ -73,6 +73,11 @@ class PicturesController < ApplicationController
     end
   end
 
+  def search2 #7月6日付け加え　allupに付け加えた検索機能
+    detail_picture = Detail.find_by(student_id: params[:search])
+    @pictures = Picture.where(id: detail_picture.picture_id)
+  end
+  
 
   #ホーム画面
   def studenthome
