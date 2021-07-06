@@ -33,7 +33,7 @@
     margin-top: 20px;
 }
 
- img{
+img{
     margin-top: 5px;
     margin-bottom: 5px;
     margin-left: auto;
@@ -43,4 +43,13 @@
     background: #eee;
     max-width: 300px;
     max-height: 200px;
+ }
 
+ #home buttom{
+     margin: 5px;
+ }
+
+ .container #logout{
+     text-align: right;
+     margin: 0px 50px;
+ }
