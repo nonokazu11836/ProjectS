@@ -73,7 +73,7 @@ class PicturesController < ApplicationController
   #  end
   #end
 
-  def search2 #7月6日付け加え　allupに付け加えた検索機能
+  def search2 #7月6日付け加えallupに付け加えた検索機能
     detail_picture = Detail.where(student_id: params[:search])
 
     arr = []
