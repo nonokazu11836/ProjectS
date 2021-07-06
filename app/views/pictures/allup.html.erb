@@ -1,17 +1,21 @@
 <h1>全ての写真</h1>
 
+<div class="search">
+  <%= form_with(url:{controller:'pictures', action:'allup'}) do |form| %>
+
+    <%= form.collection_select(:search , Student.all, :id, :name) %>
+
+    <%= form.submit "検索する" %>
+  <% end %>
+</div>
+
 <div class="flex-4">
   <% @pictures.each do |picture| %>
     <%= image_tag "#{picture.place}" %>
   <% end %>
 </div>
 
-<%= form_with(url:{controller:'pictures', action:'allup'}) do |form| %>
 
-  <%= form.collection_select(:search , Student.all, :id, :name) %>
-
-  <%= form.submit "送信" %>
-<% end %>
 
 <div class="over">
   <%= link_to ("/pictures/studenthome") do %>
