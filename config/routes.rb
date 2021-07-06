@@ -18,6 +18,7 @@ Rails.application.routes.draw do
 
   get 'pictures/search2'
   post 'pictures/allup' , to: 'pictures#search2'
+  post 'pictures/search2' , to: 'pictures#search2'
 
   delete :pictures, to: 'pictures#destroy_myupphoto'
   get 'pictures/search'
