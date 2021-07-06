@@ -25,21 +25,28 @@
       padding: 2px; /* 要素の余白を指定する(上下左右) */
     }
   </style>
+  <header class ="container">
+    <% if user_signed_in? %>
+      <table align="right">
+        <tr>
+          <td>id</td>
+          <td><%= current_user.student_id %></td>
+        </tr>
+        <tr>
+          <td>名前</td>
+          <td><%= Student.find_by(student_id: current_user.student_id).name %></td>
+        </tr>
+      </table>  
+      <h3>ログイン中</h3>
+    <% end %><br>
+      <div id="logout">
+        <% if user_signed_in? %>
+          <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+        <% end %>
+      </div>
+  </header>
 
-  <body class ="container">
-  <% if user_signed_in? %>
-  <h3>ログイン中</h3>
-  <table align="right">
-      <tr>
-        <td>id</td>
-        <td><%= current_user.student_id %></td>
-      </tr>
-      <tr>
-        <td>名前</td>
-        <td><%= Student.find_by(student_id: current_user.student_id).name %></td>
-      </tr>
-    </table>
-  <% end %>
+  <body>
     <%= yield %>
   </body>
 </html>
