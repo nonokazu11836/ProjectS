@@ -2,6 +2,15 @@
 
 one:
   name: MyString
+<<<<<<< HEAD
+  student_id: MyString
+  gakka_id: MyString
+
+two:
+  name: MyString
+  student_id: MyString
+  gakka_id: MyString
+=======
   student_id: 1
   gakka_id: 1
 
@@ -9,3 +18,4 @@ two:
   name: MyString
   student_id: 1
   gakka_id: 1
+>>>>>>> b1593fa0cbafe7cf684c5375b47bb9db6d0773c9

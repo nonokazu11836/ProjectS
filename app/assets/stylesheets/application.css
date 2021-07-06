@@ -13,6 +13,9 @@
  *= require_tree .
  *= require_self
  */
+ .container td{
+    text-align: center;
+ }
  .flex-4{
     display: flex;
     flex-wrap:wrap;
@@ -34,4 +37,4 @@
     margin: auto;
     max-width: 300px;
     max-height: 200px;
-}
+
