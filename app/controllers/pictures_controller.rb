@@ -111,7 +111,7 @@ class PicturesController < ApplicationController
   end
 
   def tagend  #タグ送信した後のページ 7月5日追加
-    @picture_id = params[:picture_id]
+    #@picture_id = params[:picture_id]
     @tag = [5]
     
     5.times do |i|
