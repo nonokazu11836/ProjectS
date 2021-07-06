@@ -6,6 +6,13 @@
   <% end %>
 </div>
 
+<%= form_with(url:{controller:'pictures', action:'allup'}) do |form| %>
+
+  <%= form.collection_select(:search , Student.all, :id, :name) %>
+
+  <%= form.submit "送信" %>
+<% end %>
+
 <div class="over">
   <%= link_to ("/pictures/studenthome") do %>
     <button> 　　ホームに戻る 　　</button>
