@@ -13,3 +13,47 @@
  *= require_tree .
  *= require_self
  */
+ .container td{
+    text-align: center;
+ }
+ .flex-4{
+    display: flex;
+    flex-wrap:wrap;
+ }
+
+ .flex-4 img:hover{
+    opacity: 0.5;
+}
+
+.over button:hover{
+    background-color: gray;
+}
+
+.over button{
+    margin-top: 20px;
+}
+
+img{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    object-fit: contain;
+    border: 2px solid #ccc;
+    background: #eee;
+    max-width: 300px;
+    max-height: 200px;
+ }
+
+ #home button{
+     margin: 5px;
+ }
+
+ .container #logout{
+     text-align: right;
+     margin: 0px 50px;
+ }
+
+ .search{
+     margin-bottom: 10px;
+ }

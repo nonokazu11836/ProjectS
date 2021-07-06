@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_02_033543) do
+ActiveRecord::Schema.define(version: 2021_07_02_094452) do
 
   create_table "accounts", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -54,8 +54,8 @@ ActiveRecord::Schema.define(version: 2021_07_02_033543) do
 
   create_table "students", force: :cascade do |t|
     t.string "name"
-    t.string "student_id"
-    t.string "gakka_id"
+    t.integer "student_id"
+    t.integer "gakka_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

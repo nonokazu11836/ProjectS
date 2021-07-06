@@ -1,3 +1,13 @@
-<% @no.each do |obj| %>
-  <%= img_tag src: obj.place %>
-<% end %>
+<h1>自分が投稿した画像</h1>
+
+<div class="flex-4">
+  <% @pictures.each do |picture| %>
+    <%= image_tag "#{picture.place}" %>
+  <% end %>
+</div>
+
+<div class="over">
+  <%= link_to ("/pictures/studenthome") do %>
+    <button> 　　ホームに戻る 　　</button>
+  <% end %><br>
+</div>

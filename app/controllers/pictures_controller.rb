@@ -1,6 +1,7 @@
 class PicturesController < ApplicationController
   before_action :set_picture, only: %i[ show edit update destroy ]
-  before_action :authenticate_user!  #追加
+  ##
+  before_action :authenticate_user!
 
   # GET /pictures or /pictures.json
   def index
@@ -14,6 +15,7 @@ class PicturesController < ApplicationController
   # GET /pictures/new
   def new
     @picture = Picture.new
+
   end
 
   # GET /pictures/1/edit
@@ -23,7 +25,10 @@ class PicturesController < ApplicationController
   # POST /pictures or /pictures.json
   def create
     @picture = Picture.new(picture_params)
+    student = Student.find_by(student_id: current_user.student_id).id
+    @picture.student_id = student
 
+    
     respond_to do |format|
       if @picture.save
         format.html { redirect_to @picture, notice: "Picture was successfully created." }
@@ -60,46 +65,86 @@ class PicturesController < ApplicationController
   end
 
   # 検索機能
-  def search
-    @pictures = Array.new
-    @pictures = Picture.all
-    if request.post?
-      @pictures = Picture.where(:detail.student_id == params[:student_id],:picture.event_id == params[:event_id])
-    end
-  end
+  #def search
+  #  @pictures = Array.new
+  #  @pictures = Picture.all
+  #  if request.post?
+  #    @pictures = Picture.where(:detail.student_id == params[:student_id],:picture.event_id == params[:event_id])
+  #  end
+  #end
 
+  def search2 #7月6日付け加え　allupに付け加えた検索機能
+    detail_picture = Detail.where(student_id: params[:search])
+
+    arr = []
+    detail_picture.each do |d|
+      arr << d.picture_id
+    end
+
+    @pictures = Picture.where("id IN (?)", arr )
+
+  end
+  
 
   #ホーム画面
   def studenthome
   end
   #医療生徒
-  def iryo
-  end
-
-  def myupphoto
-    @images = Dir.glob("app/assets/images/*.jpg")
-  end
-  def destroy_myupphoto
-    respond_to do |format|
-      if params[:deletes].blank?
-        format.html { redirect_to admin_articles_path }
-        format.json { render :json, status: :unprocessable_entity } # 多分間違っている TODO
-      end
-      delete_list = params[:deletes].keys
-      ActiveRecord::Base.transaction do
-        if Article.destroy(delete_list)
-          format.html { redirect_to admin_articles_path, notice: 'Article was successfully destroyed.' }
-          format.json { head :no_content }
-        end
-      end
-      rescue
-    end
-  end
-
-  #def myup2
-  #  #ログインしたIDと同じIDの人が登録した写真のみ出力
-  #  @no = Picture.where(student_id == $login)
+  #def iryo
   #end
+
+  #def myupphoto
+  #  @images = Dir.glob("app/assets/images/*.jpg")
+  #end
+  #def destroy_myupphoto
+  #  respond_to do |format|
+  #    if params[:deletes].blank?
+  #      format.html { redirect_to admin_articles_path }
+  #      format.json { render :json, status: :unprocessable_entity } # 多分間違っている TODO
+  #    end
+  #    delete_list = params[:deletes].keys
+  #    ActiveRecord::Base.transaction do
+  #      if Article.destroy(delete_list)
+  #        format.html { redirect_to admin_articles_path, notice: 'Article was successfully destroyed.' }
+  #        format.json { head :no_content }
+  #      end
+  #    end
+  #    rescue
+  #  end
+  #end
+
+  def myup2 #自分の投稿した画像のページ
+    student = Student.find_by(student_id: current_user.student_id)
+    @pictures = Picture.where(student_id: student.id)
+  end
+
+  def allup #全ての写真のページ
+    @pictures = Picture.all
+  end
+
+  def tagend  #タグ送信した後のページ 7月5日追加
+    #@picture_id = params[:picture_id]
+    @tag = [5]
+    
+    5.times do |i|
+      if params["student_id#{i+1}"] != 0 
+        @tag[i] = Student.find_by(student_id: params["student_id#{i+1}"])
+      end
+    end
+
+    # detailテーブルに新規情報を入れる
+    # 投稿したpicture_idと映っている人のstudent_idを保存
+    5.times do |i|
+      if @tag[i] != nil
+        Detail.create(
+          picture_id: params[:picture_id],
+          student_id: @tag[i].id
+        )
+      end
+    end
+    
+  end
+
 
   private
      #Use callbacks to share common setup or constraints between actions.
@@ -109,11 +154,11 @@ class PicturesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def picture_params
-      params.require(:picture).permit(:student_id, :place, :date, :event_id)
+      params.require(:picture).permit(:student_id, :place, :date, :event_id )
     end
-    def myupphoto
-      
-    end
+    #def myupphoto
+    #  
+    #end
   end
 
 
