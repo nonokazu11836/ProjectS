@@ -123,26 +123,16 @@ class PicturesController < ApplicationController
   end
 
   def tagend  #タグ送信した後のページ 7月5日追加
-    #@picture_id = params[:picture_id]
-    @tag = [5]
-    
-    5.times do |i|
-      if params["student_id#{i+1}"] != 0 
-        @tag[i] = Student.find_by(student_id: params["student_id#{i+1}"])
-      end
-    end
 
-    # detailテーブルに新規情報を入れる
-    # 投稿したpicture_idと映っている人のstudent_idを保存
-    5.times do |i|
-      if @tag[i] != nil
+    Student.all.each do |s|   
+      if params["#{s.id}"] == "1"
         Detail.create(
           picture_id: params[:picture_id],
-          student_id: @tag[i].id
+          student_id: s.id
         )
       end
     end
-    
+
   end
 
 
