@@ -1,0 +1,13 @@
+<h1>自分が投稿した画像</h1>
+
+<div class="flex-4">
+  <% @pictures.each do |picture| %>
+    <%= link_to image_tag("#{picture.place}") , pictures_myupdetail_path(picture_id: "#{picture.id}") %>
+  <% end %>
+</div>
+
+<div class="over">
+  <%= link_to ("/pictures/studenthome") do %>
+    <button> 　　ホームに戻る 　　</button>
+  <% end %><br>
+</div>

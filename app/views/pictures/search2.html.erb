@@ -1,0 +1,21 @@
+<h1>検索結果</h1>
+
+<%= form_with(url:{controller:'pictures', action:'search2'}) do |form| %>
+
+  <%= form.collection_select(:search , Student.all, :id, :name) %>
+  
+  <%= form.submit "送信" %>
+ 
+<% end %>
+
+<div class="flex-4">
+  <% @pictures.each do |picture| %>
+    <%= link_to image_tag("#{picture.place}") , pictures_showdetail_path(picture_id: "#{picture.place}") %>
+  <% end %>
+</div>
+
+<div class="over">
+  <%= link_to ("/pictures/studenthome") do %>
+    <button> 　　ホームに戻る 　　</button>
+  <% end %><br>
+</div>

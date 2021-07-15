@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<h1>映っている人を選択してください！</h1>
+
+<p>
+  <%= image_tag "#{@picture.place}" %>
+</p>
+
+<%= form_with(url:{controller:'pictures', action:'tagend'}) do |form| %>
+
+    <% Student.all.each do |f| %>
+      <div class="tag">       
+        <%= form.check_box(f.id) %>  
+        <%= form.label f.name %>
+      </div>
+    <% end %>
+  
+
+  <%= hidden_field_tag :picture_id, @picture.id %>
+  <p>
+    <%= form.submit "送信" %>
+  </p>
+<% end %>

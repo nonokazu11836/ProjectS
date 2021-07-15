@@ -1,0 +1,73 @@
+ul.image-list li {
+    display: inline-block;
+    margin: 10px 20px;
+  }
+  ul.image-list li .image-box {
+    width: 200px;
+    height: 200px;
+    position: relative;
+  }
+  .image-box img.image {
+    width: 100%;
+    height: 100%;
+  }
+  .image-box img.image.checked {
+    border: 6px solid deeppink;
+    box-sizing: border-box;
+  }
+  .image-box .disabled-checkbox {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    display: none;
+  }
+  .image-box img.image.checked + .disabled-checkbox {
+    display: block;
+  }
+  //変数
+$green: cyan;
+
+table {
+  width:100%;
+  border-collapse: collapse; //ポイント①
+}
+
+th,td{
+  letter-spacing: 0.1em;
+  padding: 5px 10px;
+}
+
+th{
+  position: sticky; //ポイント②
+  top: 0; //ポイント②
+  width: calc(100% / 3);
+  background: $green;
+  color: white;
+  font-size: 20px;
+}
+
+td{
+  background: rgba($green,0.8);
+  color: white;
+  font-weight: bold;
+  border-top: 1px solid white;
+}
+
+.table-wrap{
+  height: 650px; //ポイント②
+  overflow: auto; //ポイント②
+  &::-webkit-scrollbar {
+    //スクロールバーの横幅指定　ポイント③
+    width: 13px;
+  }
+  &::-webkit-scrollbar-track {
+    //スクロールバーの背景色・角丸指定　ポイント③
+    background:lighten($green,0.4);
+  }
+  &::-webkit-scrollbar-thumb {
+    //スクロールバーの色・角丸指定　ポイント③
+    background-color: darken($green,10%);
+    border:3px solid lighten($green,0.4);
+    border-radius:10px;
+  }
+}

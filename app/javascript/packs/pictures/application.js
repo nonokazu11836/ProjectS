@@ -1,0 +1,1 @@
+require ('pictures/myupphoto')
