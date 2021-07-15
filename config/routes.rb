@@ -30,6 +30,9 @@ Rails.application.routes.draw do
   get 'pictures/showdetail'
   post 'pictures/allup' , to: 'pictures#showdetail'
 
+  get 'pictures/myupdetail'
+  post 'pictures/myup2' , to: 'pictures#myupdetail'
+
   
   #delete :pictures, to: 'pictures#destroy_myupphoto'
   #get 'pictures/search'

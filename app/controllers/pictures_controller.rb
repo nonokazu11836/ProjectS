@@ -138,6 +138,9 @@ class PicturesController < ApplicationController
   def showdetail
     @params = params["picture_id"]
   end
+  def myupdetail
+    @params = params["picture_id"]
+  end
 
 
   private
