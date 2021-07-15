@@ -11,7 +11,7 @@
 
 <div class="flex-4">
   <% @pictures.each do |picture| %>
-    <%= image_tag "#{picture.place}" %>
+    <%= link_to image_tag("#{picture.place}") , pictures_showdetail_path(picture_id: "#{picture.place}") %>
   <% end %>
 </div>
 

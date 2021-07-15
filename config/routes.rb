@@ -27,6 +27,9 @@ Rails.application.routes.draw do
   post 'pictures/allup' , to: 'pictures#search2'
   post 'pictures/search2' , to: 'pictures#search2'
 
+  get 'pictures/showdetail'
+  post 'pictures/allup' , to: 'pictures#showdetail'
+
   
   #delete :pictures, to: 'pictures#destroy_myupphoto'
   #get 'pictures/search'
