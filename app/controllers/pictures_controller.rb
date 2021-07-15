@@ -84,8 +84,8 @@ class PicturesController < ApplicationController
     @pictures = Picture.where("id IN (?)", arr )
 
   end
-  
 
+  
   #ホーム画面
   def studenthome
   end
