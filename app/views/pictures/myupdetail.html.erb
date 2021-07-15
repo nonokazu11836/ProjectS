@@ -3,9 +3,11 @@
 
 <div class="flex-4">
 
-    <%= image_tag "#{@params}" %>
+    <%= image_tag "#{@picture.place}" %>
 
 </div>
+
+<%= link_to 'Destroy', @picture, method: :delete, data: { confirm: 'Are you sure?' } %>
 
 <div class="over">
   <%= link_to ("/pictures/myup2") do %>

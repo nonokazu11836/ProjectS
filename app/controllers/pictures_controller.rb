@@ -57,11 +57,11 @@ class PicturesController < ApplicationController
   def destroy
     @user = Picture.find(params[:id])
     @picture.destroy
-    respond_to do |format|
-      format.html { redirect_to pictures_url, notice: "Picture was successfully destroyed." }
-      format.json { head :no_content }
-    end 
-    # redirect_to pictures_path
+    # respond_to do |format|
+    #   format.html { redirect_to pictures_url, notice: "Picture was successfully destroyed." }
+    #   format.json { head :no_content }
+    # end 
+    redirect_to "/pictures/myup2"
   end
 
   # 検索機能
@@ -139,7 +139,13 @@ class PicturesController < ApplicationController
     @params = params["picture_id"]
   end
   def myupdetail
-    @params = params["picture_id"]
+    @picture = Picture.find(params[:picture_id])
+    @details = Detail.where(picture_id: params[:picture_id])
+
+    @details.each do |d|
+      d.destroy
+    end
+
   end
 
 
@@ -156,6 +162,9 @@ class PicturesController < ApplicationController
     #def myupphoto
     #  
     #end
+    def tomyup2
+      redirect_to "pictures/myup2"
+    end
   end
 
 
