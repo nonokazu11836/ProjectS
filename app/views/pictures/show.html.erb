@@ -8,17 +8,16 @@
 
 <%= form_with(url:{controller:'pictures', action:'tagend'}) do |form| %>
 
-  <div class="tag">
-  <% Student.all.each do |f| %>       
-   <p>
-      <%= form.check_box(f.id) %>  
-      <%= form.label f.name %>
-   </p>
-  <% end %>
-  </div>
+    <% Student.all.each do |f| %>
+      <div class="tag">       
+        <%= form.check_box(f.id) %>  
+        <%= form.label f.name %>
+      </div>
+    <% end %>
   
 
   <%= hidden_field_tag :picture_id, @picture.id %>
-
-  <%= form.submit "送信" %>
+  <p>
+    <%= form.submit "送信" %>
+  </p>
 <% end %>
