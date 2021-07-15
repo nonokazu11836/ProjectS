@@ -57,6 +57,10 @@ img{
     margin-bottom: 10px;
  }
 
+ .tag label{
+    display: inline-block;
+ }
+
  @media screen and (max-width: 300px){
 
     body{
