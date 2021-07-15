@@ -7,6 +7,7 @@
     <link rel ="stylesheet"
     href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/
       bootstrap.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <%= stylesheet_link_tag 'application', media: 'all', 
     'data-turbolinks-track': 'reload' %>
@@ -17,7 +18,8 @@
     table {
       border-collapse: collapse; /* 隣接するセルの罫線を重ねて表示する */
       color: #00000; /* フォントの色を指定する */
-      width: 15%; /* テーブルの横幅を指定する */
+      width: 150px; /* テーブルの横幅を指定する */
+      height: 70px; /* テーブルの縦幅を指定する */
     }
     td, th {
       border: 1px solid #000000; /* 境界線を実線で指定する */
@@ -36,16 +38,18 @@
           <td>名前</td>
           <td><%= Student.find_by(student_id: current_user.student_id).name %></td>
         </tr>
+        <tfoot>
+          <td colspan="2">
+              <div id="logout">
+                <% if user_signed_in? %>
+                  <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+                <% end %>
+              </div>
+          </td>
+        </tfoot>
       </table>  
-      <h3>ログイン中</h3>
-    <% end %><br>
-      <div id="logout">
-        <% if user_signed_in? %>
-          <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
-        <% end %>
-      </div>
+    <% end %>
   </header>
-
   <body>
     <%= yield %>
   </body>
